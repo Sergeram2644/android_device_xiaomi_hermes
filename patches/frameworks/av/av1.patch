@@ -1,0 +1,23 @@
+#Add mising MediaBufferGroup::acquire_buffer symbol
+#patch by DeckerSU
+diff --git a/media/libstagefright/foundation/MediaBufferGroup.cpp b/media/libstagefright/foundation/MediaBufferGroup.cpp
+index 3dcb237..c9e95df 100644
+--- a/media/libstagefright/foundation/MediaBufferGroup.cpp
++++ b/media/libstagefright/foundation/MediaBufferGroup.cpp
+@@ -114,6 +114,14 @@ extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBu
+     return group->acquire_buffer(out, false, 0);
+ }
+ 
++// just another method fix
++extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb(
++                    MediaBufferGroup* group, MediaBuffer **out, bool nonBlocking) {
++    ALOGD("[Decker] _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb");
++    return group->acquire_buffer(out, nonBlocking, 0);
++}
++
++
+ bool MediaBufferGroup::has_buffers() {
+     if (mBuffers.size() < mGrowthLimit) {
+         return true; // We can add more buffers internally.
+-- 
+2.7.4

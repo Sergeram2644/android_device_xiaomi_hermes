@@ -1,0 +1,38 @@
+BtSnoopLogOutput=true
+BtSnoopFileName=/sdcard/mtklog/btlog/btsnoop_hci.log
+BtSnoopSaveLog=true
+TraceConf=true
+TRC_BTM=6
+TRC_HCI=6
+TRC_L2CAP=6
+TRC_RFCOMM=6
+TRC_OBEX=6
+TRC_AVCT=6
+TRC_AVDT=6
+TRC_AVRC=6
+TRC_AVDT_SCB=6
+TRC_AVDT_CCB=6
+TRC_A2D=6
+TRC_SDP=6
+TRC_GATT=6
+TRC_SMP=6
+TRC_BTAPP=6
+TRC_BTIF=6
+TRC_GAP=6
+TRC_BNEP=6
+TRC_PAN=6
+TRC_B3DS=6
+
+[MtkBtFWLog]
+C1      = 01 BE FC 01 05
+C2      = 01 5F FC 2A 50 01 09 00 00 00
+C201    = 01 00 00 00
+C202    = 00 00 00 00
+C203    = 01 00 00 00
+C204    = 01 00 00 00
+C205    = 01 00 00 00
+C206    = 01 00 00 00
+C207    = 01 00 01 00
+C208    = 03 38 00 00
+C209    = 01 00 00 00
+

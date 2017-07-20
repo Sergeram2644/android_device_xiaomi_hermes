@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mtk_agps_profiles maj_ver="1" min_ver="2">
+
+  <cur_supl_profile name="GOOGLE"
+      addr="supl.google.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- GOOGLE-->
+  <supl_profile name="GOOGLE"
+      addr="supl.google.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- GOOGLE-->
+  <supl_profile name="GOOGLE nonTLS"
+      addr="supl.google.com"
+      port="7276"
+      tls="false"
+  />
+
+  <!-- GOOGLE-->
+  <supl_profile name="GOOGLE IP"
+      addr="173.194.72.192"
+      port="7276"
+      tls="false"
+  />
+
+  <!-- Spirent Lab -->
+  <supl_profile name="Spirent"
+      addr="www.spirent-lcs.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- R&S Lab -->
+  <supl_profile name="RnS"
+      addr="slp.rs.de"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- CMCC Lab -->
+  <supl_profile name="CMCC Lab"
+      addr="218.206.176.50"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Andrew Lab -->
+  <supl_profile name="Andrew"
+      addr="slp1acva.andrew.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Ericsson  Lab -->
+  <supl_profile name="Ericsson"
+      addr="172.22.1.100"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Ericsson  Lab FQDN -->
+  <supl_profile name="Ericsson FQDN"
+      addr="mvtvltegmpc.naladmz.ericsson.ca"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Ericsson  Lab FQDN 2 -->
+  <supl_profile name="Ericsson FQDN 2"
+      addr="mvtv-broadcom.naladmz.ericsson.ca"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- ORANGE -->
+  <supl_profile name="ORANGE"
+      addr="agpss.orange.fr"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- CMCC-->
+  <supl_profile name="CMCC"
+      addr="221.176.0.55"
+      port="7275"
+      tls="true"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
+
+  <!-- Telstra -->
+  <supl_profile name="Telstra"
+      addr="agps.supl.telstra.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- CHUAN HWA -->
+  <supl_profile name="Chunghwa"
+      addr="10.1.101.137"
+      port="8025"
+      tls="false"
+  />
+
+  <!-- T-Mobile -->
+  <supl_profile name="T-Mobile"
+      addr="lbs.geo.t-mobile.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Vodafone -->
+  <supl_profile name="Vodafone"
+      addr="supl.vodafone.com"
+      port="7275"
+      tls="true"
+      mcc_mnc="22010"
+      supl_version="2"
+      tls_version="1"
+      sha_version="0"
+  />
+
+  <!-- Test 1 -->
+  <supl_profile name="Test 1"
+      addr="127.0.0.1"
+      port="7276"
+      tls="false"
+      mcc_mnc="999998"
+      supl_version="1"
+      tls_version="0"
+      sha_version="2"
+  />
+
+  <!-- Test 2 -->
+  <supl_profile name="Test 2"
+      addr="127.0.0.1"
+      port="7276"
+      tls="false"
+      mcc_mnc="999999"
+      supl_version="2"
+      tls_version="1"
+      sha_version="0"
+  />
+
+  <!-- CDMA profile template -->
+  <cdma_profile name="CDMA1"
+  	mcp_enable="false"
+  	mcp_addr="10.199.2.165"
+  	mcp_port="6066"
+  	pde_addr_valid="false"
+  	pde_ip_type="0"
+  	pde_addr="11.11.11.11"
+  	pde_port="1111"
+  	pde_url_valid="false"
+  	pde_url_addr="www.mediatek.com"
+  />
+
+  <agps_setting
+    agps_enable="true"
+    agps_protocol="0"
+    gpevt="false"
+  />
+
+  <cp_setting
+    molr_pos_method="0"
+    external_addr_enable="false"
+    external_addr="0123456789*#+"
+    mlc_number_enable="false"
+    mlc_number="0123456789*#+"
+    cp_auto_reset="false"
+    epc_molr_lpp_payload_enable="false"
+    epc_molr_lpp_payload="D2000010237B2026404FB8007202BFFFFFFFF80000000020C0000100940FB9001202B7FFFFF8000000000061800002018A00"
+  />
+
+  <up_setting
+    ca_enable="false"
+    ni_request="true"
+    roaming="true"
+    cdma_preferred="0"
+    pref_method="1"
+    supl_version="1"
+    tls_version="0"
+    sha_version="0"
+    supl_log="false"
+    msa_enable="true"
+    msb_enable="true"
+    ecid_enable="true"
+    otdoa_enable="false"
+    qop_hacc="22"
+    qop_vacc="0"
+    qop_loc_age="0"
+    qop_delay="0"
+    udp_port_enable="false"
+    dedicated_apn_enable="true"
+    preferred_2g3g_cell_age="300"
+    lpp_enable="true"
+    cert_from_sdcard="true"
+  />
+
+</mtk_agps_profiles>

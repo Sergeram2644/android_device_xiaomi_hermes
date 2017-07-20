@@ -1,0 +1,105 @@
+#ifndef MTK_AGPS_COMMON_H
+#define MTK_AGPS_COMMON_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#if ( defined(__ARMCC_VERSION) && (__ARMCC_VERSION < 200000 ))
+#else
+#pragma pack(1)
+#endif
+
+#define MTK_MNL2SUPL      "/data/agps_supl/mnl2supl"
+#define MTK_PROFILE2MNL   "/data/agps_supl/profile2mnl"
+#define GPS_MNL_SUPL_NAME "gps.supl.status"
+#define GPS_MNL_PROCESS_STATUS "gps.mnl_process.status"
+
+typedef enum
+{
+  MTK_MOD_GPS = 0,
+  MTK_MOD_SUPL,
+  MTK_MOD_WIFI,
+  MTK_MOD_CELLID,
+  MTK_MOD_CNT,
+} MTK_AGPS_MOD_E;
+
+typedef enum
+{
+  MTK_AGPS_SUPL_ASSIST_REQ= 0,
+  MTK_AGPS_SUPL_NI_REQ,
+  MTK_AGPS_SUPL_PMTK_DATA,
+  MTK_AGPS_SUPL_END,
+  MTK_AGPS_SUPL_MNL_STATUS,
+  MTK_AGPS_SUPL_GPEVT,
+  MTK_AGPS_SUPL_CNT,
+  MTK_AGPS_AIDING_CELLINFO,
+  MTK_AGPS_AIDING_WIFIIFNO,
+  MTK_AGPS_SUPL_RAW_DBG,
+} MTK_AGPS_SUPL_MSG_T;
+
+typedef enum
+{
+  GPEVT_TYPE_UNKNOWN = 0,
+  GPEVT_SUPL_SLP_CONNECT_BEGIN,
+  GPEVT_SUPL_SLP_CONNECTED,
+  GPEVT_SUPL_SSL_CONNECT_BEGIN,
+  GPEVT_SUPL_SSL_CONNECTED,
+  GPEVT_SUPL_ASSIST_DATA_RECEIVED,
+  GPEVT_SUPL_ASSIST_DATA_VALID,
+  GPEVT_SUPL_FIRST_POS_FIX,
+  GPEVT_SUPL_MEAS_TIME_OUT,
+  GPEVT_SUPL_MEAS_RESPONSE_SENT,
+  GPEVT_SUPL_SSL_CLOSED,
+  GPEVT_SUPL_SLP_DISCONNECTED,
+
+  GPEVT_CP_MOLR_SENT,
+  GPEVT_CP_MTLR_RECEIVED,
+  GPEVT_CP_ASSIST_DATA_RECEIVED,
+  GPEVT_CP_ASSIST_DATA_VALID,
+  GPEVT_CP_FIRST_POS_FIX,
+  GPEVT_CP_MEAS_TIME_OUT,
+  GPEVT_CP_MEAS_RESPONSE_SENT,
+
+  GPEVT_GNSS_HW_START,
+  GPEVT_GNSS_HW_STOP,
+  GPEVT_GNSS_RESET_STORED_SATELLITE_DATA,
+
+  GPEVT_EPO_SERVER_CONNECT_BEGIN,
+  GPEVT_EPO_SERVER_CONNECTED,
+  GPEVT_EPO_DATA_RECEIVED,
+  GPEVT_EPO_SERVER_DISCONNECTED,
+  GPEVT_EPO_DATA_VALID,
+
+  GPEVT_HOT_STILL_DATA_VALID,
+
+  GPEVT_TYPE_MAX
+}gpevt_type;
+
+typedef struct
+{
+    unsigned char srcMod;
+    unsigned char dstMod;
+    unsigned short type;
+    unsigned short length;
+    char data[1];
+} mtk_agps_msg, *pmtk_agps_msg,  MTK_AGPS_MSG_T, *PMTK_AGPS_MSG_T;
+
+#define MAX_AGPS_MAX_MESSAGES             72
+#define MTK_AGPS_PMTK_MAX_SIZE            (256+sizeof(mtk_agps_msg))
+#define MTK_AGPS_PMTK_MAX_LEN             (256+sizeof(mtk_agps_msg))
+#define MTK_AGPS_PMTK_HDR_LEN            sizeof(MTK_AGPS_MSG_T)
+#define MTK_AGPS_MSG_MAX_LEN             (MTK_AGPS_PMTK_MAX_LEN + MTK_AGPS_PMTK_HDR_LEN)
+
+#define MTK_AGPS_SUPLMSG_TIMEOUT          6000
+
+#if ( defined(__ARMCC_VERSION) && (__ARMCC_VERSION < 200000 ))
+#else
+#pragma pack()
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

@@ -1,0 +1,30 @@
+#Patch for biger env number
+#patch by xen0n
+diff --git a/init/init.cpp b/init/init.cpp
+index 9992b47..9a24167 100755
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -85,7 +85,7 @@ int have_console;
+ std::string console_name = "/dev/console";
+ static time_t process_needs_restart;
+ 
+-const char *ENV[32];
++const char *ENV[64];
+ 
+ bool waiting_for_exec = false;
+ 
+diff --git a/init/init.h b/init/init.h
+index 345d442..f93d0c5 100644
+--- a/init/init.h
++++ b/init/init.h
+@@ -24,7 +24,7 @@ class Service;
+ 
+ #define COMMAND_RETRY_TIMEOUT 5
+ 
+-extern const char *ENV[32];
++extern const char *ENV[64];
+ extern bool waiting_for_exec;
+ extern int have_console;
+ extern std::string console_name;
+-- 
+2.7.4

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <feature name="android.hardware.camera" />
+    <feature name="android.hardware.camera.autofocus" />
+    <feature name="android.hardware.camera.flash" />
+    <feature name="android.hardware.camera.front" />
+    <feature name="android.hardware.camera.any" />
+</permissions>
