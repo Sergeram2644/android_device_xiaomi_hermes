@@ -49,4 +49,3 @@ allow msensord ctl_st480_prop:property_service set;
 
 # Nougat
 allow msensord rootfs:lnk_file { getattr };
-allow msensord ctl_memsicd3416x_prop:property_service set;

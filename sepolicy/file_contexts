@@ -96,7 +96,6 @@
 /dev/devmap(/.*)? u:object_r:devmap_device:s0
 /dev/dummy_cam_cal(/.*)? u:object_r:dummy_cam_cal_device:s0
 /dev/DW9714AF(/.*)? u:object_r:DW9714AF_device:s0
-/dev/DW9761BAF(/.*)? u:object_r:DW9761BAF_device:s0
 /dev/DW9814AF(/.*)? u:object_r:DW9814AF_device:s0
 /dev/AK7345AF(/.*)? u:object_r:AK7345AF_device:s0
 /dev/DW9714A(/.*)? u:object_r:DW9714A_device:s0

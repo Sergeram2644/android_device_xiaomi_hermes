@@ -185,4 +185,3 @@ type persist_block_device, dev_type;
 type md_block_device, dev_type;
 type dsp_block_device, dev_type;
 type ppl_block_device, dev_type;
-type DW9761BAF_device, dev_type;

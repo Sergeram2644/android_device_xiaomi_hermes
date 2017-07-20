@@ -1,23 +1,30 @@
-#Add mising MediaBufferGroup::acquire_buffer symbol
-#patch by DeckerSU
+From ce38ddd763b85c5e5b17ab25c1c0d040b70dc2cb Mon Sep 17 00:00:00 2001
+From: bjsiu <bjsiu0617@gmail.com>
+Date: Fri, 21 Jul 2017 00:56:41 +0800
+Subject: [PATCH] av1
+
+Change-Id: I882e4026f8b39fde990351f0d0c83c1f520d093b
+---
+ media/libstagefright/foundation/MediaBufferGroup.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
 diff --git a/media/libstagefright/foundation/MediaBufferGroup.cpp b/media/libstagefright/foundation/MediaBufferGroup.cpp
-index 3dcb237..c9e95df 100644
+index 8e4d064..dc9a9ae 100644
 --- a/media/libstagefright/foundation/MediaBufferGroup.cpp
 +++ b/media/libstagefright/foundation/MediaBufferGroup.cpp
-@@ -114,6 +114,14 @@ extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBu
-     return group->acquire_buffer(out, false, 0);
+@@ -126,6 +126,12 @@ void MediaBufferGroup::add_buffer(MediaBuffer *buffer) {
+     mBuffers.emplace_back(buffer);
  }
  
-+// just another method fix
 +extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb(
 +                    MediaBufferGroup* group, MediaBuffer **out, bool nonBlocking) {
-+    ALOGD("[Decker] _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb");
++    ALOGD("[Fix] _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb");
 +    return group->acquire_buffer(out, nonBlocking, 0);
 +}
-+
 +
  bool MediaBufferGroup::has_buffers() {
      if (mBuffers.size() < mGrowthLimit) {
          return true; // We can add more buffers internally.
 -- 
 2.7.4
+

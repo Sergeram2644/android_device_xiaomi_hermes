@@ -27,7 +27,6 @@ init_daemon_domain(atci_service)
 # Purpose : allow Binder IPC
 # atci_pq_cmd.cpp will call aal for runtime tuning
 binder_use(atci_service)
-binder_call(atci_service, aal)
 
 # Date : 2015/09/04
 # Operation : Migration
