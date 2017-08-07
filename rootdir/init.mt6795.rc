@@ -33,6 +33,45 @@ export LD_PRELOAD "libmtk_symbols.so"
     #Create CIP mount point
     mkdir /custom
 
+    # ion device
+    chmod 0666 /dev/ion
+    chmod 0660 /sys/bus/platform/drivers/gsensor/cpsdata
+    chmod 0660 /sys/bus/platform/drivers/gsensor/cpsrange
+    chmod 0660 /sys/bus/platform/drivers/gsensor/cpsbandwidth
+    chmod 0660 /sys/bus/platform/drivers/gsensor/cpsopmode
+    chmod 0660 /sys/bus/platform/drivers/gsensor/fifo_mode
+    chmod 0660 /sys/bus/platform/drivers/gsensor/fifo_data_frame
+    chmod 0660 /sys/bus/platform/drivers/gsensor/fifo_framecount
+    chown system system /sys/bus/platform/drivers/gsensor/cpsdata
+    chown system system /sys/bus/platform/drivers/gsensor/cpsrange
+    chown system system /sys/bus/platform/drivers/gsensor/cpsbandwidth
+    chown system system /sys/bus/platform/drivers/gsensor/cpsopmode
+    chown system system /sys/bus/platform/drivers/gsensor/fifo_mode
+    chown system system /sys/bus/platform/drivers/gsensor/fifo_data_frame
+    chown system system /sys/bus/platform/drivers/gsensor/fifo_framecount
+
+    # add for mag 
+    chmod 0660 /sys/bus/platform/drivers/msensor/rawdata 
+    chown system system /sys/bus/platform/drivers/msensor/rawdata 
+    chmod 0660 /sys/bus/platform/drivers/msensor/daemon
+    chown system system /sys/bus/platform/drivers/msensor/daemon
+
+    # add for gyro 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/rawdata 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/datarate 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/range 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/powermode 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/fifo_mode 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/fifo_data_frame 
+    chmod 0660 /sys/bus/platform/drivers/gyroscope/fifo_framecount 
+    chown system system /sys/bus/platform/drivers/gyroscope/rawdata 
+    chown system system /sys/bus/platform/drivers/gyroscope/datarate 
+    chown system system /sys/bus/platform/drivers/gyroscope/range 
+    chown system system /sys/bus/platform/drivers/gyroscope/powermode 
+    chown system system /sys/bus/platform/drivers/gyroscope/fifo_mode 
+    chown system system /sys/bus/platform/drivers/gyroscope/fifo_data_frame
+    chown system system /sys/bus/platform/drivers/gyroscope/fifo_framecount
+
     chmod 0666 /dev/kmsg
 
     mkdir /mnt/cd-rom 0000 system system
@@ -357,7 +396,7 @@ on post-fs-data
     chown system /sys/devices/platform/msensor/driver/cpsreptxy
     chown system /sys/devices/platform/msensor/driver/cpsreptz
 
-    mkdir       /data/data/mcube 0664 system system
+    mkdir /data/data/mcube 0664 system system
     # GPIO
     chmod 0664 /dev/mtgpio
 
@@ -645,20 +684,28 @@ on boot
     chown system /sys/module/mlog/parameters/timer_intval
 
   	chown root   radio  /sys/class/leds/lcd-backlight/duty
-	  chown root   radio  /sys/class/leds/lcd-backlight/div
-	  chown system system /sys/class/leds/lcd-backlight/trigger
-	  chown system system /sys/class/leds/button-backlight/trigger
-	  chown system system /sys/class/leds/keyboard-backlight/trigger
-	  chown system system /sys/class/leds/jogball-backlight/trigger
-	  chown system system /sys/class/leds/red/trigger
-	  chown system system /sys/class/leds/red/risetime
-	  chown system system /sys/class/leds/red/falltime
-	  chown system system /sys/class/leds/green/trigger
-	  chown system system /sys/class/leds/green/risetime
-	  chown system system /sys/class/leds/green/falltime
-	  chown system system /sys/class/leds/blue/trigger
-	  chown system system /sys/class/leds/blue/risetime
-	  chown system system /sys/class/leds/blue/falltime
+    chown root   radio  /sys/class/leds/lcd-backlight/div
+    chown system system /sys/class/leds/lcd-backlight/trigger
+    chown system system /sys/class/leds/button-backlight/trigger
+    chown system system /sys/class/leds/keyboard-backlight/trigger
+    chown system system /sys/class/leds/jogball-backlight/trigger
+    chown system system /sys/class/leds/red/trigger
+    chown system system /sys/class/leds/red/risetime
+    chown system system /sys/class/leds/red/falltime
+    chown system system /sys/class/leds/green/trigger
+    chown system system /sys/class/leds/green/risetime
+    chown system system /sys/class/leds/green/falltime
+    chown system system /sys/class/leds/blue/trigger
+    chown system system /sys/class/leds/blue/risetime
+    chown system system /sys/class/leds/blue/falltime
+    chown system system /sys/class/leds/yellow/brightness
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/cyan/brightness
+    chown system system /sys/class/leds/violet/brightness
+    chown system system /sys/class/leds/yellow/trigger
+    chown system system /sys/class/leds/white/trigger
+    chown system system /sys/class/leds/cyan/trigger
+    chown system system /sys/class/leds/violet/trigger
 
     # Permission for hibernation
     chown radio system /sys/power/tuxonice
@@ -1187,6 +1234,24 @@ service memsicd3416x /system/bin/memsicd3416x
     user system
     group system
     class main
+
+service bmi160d /system/bin/bmi160d
+    class main
+    user system
+    group system
+    oneshot
+	
+service lsm6ds3d /system/bin/lsm6ds3d
+    class main
+    user system
+    group system
+    oneshot
+
+service yamaha537 /system/bin/yamaha537
+    class main
+    user system
+    group system input
+    oneshot
 
 service akmd8975 /system/bin/akmd8975
     disabled

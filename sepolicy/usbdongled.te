@@ -17,6 +17,5 @@ allow usbdongled netdomain:fd use;
 allow usbdongled radio_prop:property_service set;
 allow usbdongled ctl_ril3gd_prop:property_service set;
 
-
 allow usbdongled system_file:file x_file_perms;
 allow usbdongled shell_exec:file rx_file_perms;

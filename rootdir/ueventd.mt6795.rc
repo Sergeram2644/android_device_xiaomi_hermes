@@ -97,6 +97,9 @@
 /dev/ttySDIO*             0660   radio      sdcard_rw
 /dev/ttyRB*               0660   radio      radio
 
+# Mali node
+/dev/mali                 0666   system     graphics
+
 # Change ION driver permission
 /dev/ion                  0666   system     graphics
 

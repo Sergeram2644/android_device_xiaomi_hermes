@@ -228,6 +228,7 @@ unix_socket_connect(system_server, wod_sim, epdg_wod)
 # Date : WK15.30
 # Operation : Migration
 # Purpose : for device bring up, not to block early migration/sanity
+allow system_server aal_service:service_manager find;
 allow system_server dm_agent_binder_service:service_manager find;
 allow system_server guiext-server_service:service_manager find;
 
@@ -247,13 +248,13 @@ allow system_server dhcp6c:process signal;
 # Operation : Bug fix
 # Purpose : Allow P2P framework to read MAC via nvram_agent_service
 allow system_server nvram_agent_service:service_manager find;
-allow system_server debugfs:dir { read open };
-allow system_server unlabeled:file unlink;
-allow system_server wmt_prop:file { read open getattr };
-# Purpose : RGX 1.5 DDK requires client to have fifo R/W and sync_device permission
+
 # Date : WK15.42
 # Operation : Migration
+# Purpose : RGX 1.5 DDK requires client to have fifo R/W and sync_device permission
 allow system_server surfaceflinger:fifo_file rw_file_perms; 
 allow system_server sw_sync_device:chr_file { read write getattr open ioctl };
 allow system_server wifi_data_file:sock_file { unlink };
-allow system_server fast_charge_sysfs:file rw_file_perms;
+allow system_server debugfs:dir { read open };
+allow system_server unlabeled:file unlink;
+allow system_server wmt_prop:file { read open getattr };

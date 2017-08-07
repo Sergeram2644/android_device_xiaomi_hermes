@@ -239,9 +239,13 @@ allow platform_app mediaserver:dir search;
 # Package: memtrack
 allow platform_app debugfs:file getattr;
 
+# Date : 2015/10/30
+# Operation : Migration
+# Purpose : allow platform_app to find aal_service
+allow platform_app aal_service:service_manager { find };
+
 # Date : 2015/10/15
 # Operation : jg_jinchuanqin
 # Purpose :[ALPS02350168]allow Settings get file of ntfs device
 # Package: com.android.settings
 allow platform_app fuseblk:file { read open write create getattr unlink};
-

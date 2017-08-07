@@ -1,8 +1,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 $(call inherit-product, device/common/gps/gps_us_supl.mk) 
 $(call inherit-product, vendor/xiaomi/hermes/hermes-vendor-blobs.mk)
 
@@ -17,7 +17,7 @@ PRODUCT_AAPT_CONFIG := normal xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Recovery allowed devices
-TARGET_OTA_ASSERT_DEVICE := hermes,lineage_hermes
+TARGET_OTA_ASSERT_DEVICE := hermes
 
 # Power
 PRODUCT_PACKAGES += \
@@ -31,6 +31,10 @@ PRODUCT_PACKAGES += Snap
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images
+
+# FM Radio
+PRODUCT_PACKAGES += \
+    FmRadio
 
 # Torch
 PRODUCT_PACKAGES += Torch
@@ -185,7 +189,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl \
     $(LOCAL_PATH)/configs/keylayout/ACCDET.kl:system/usr/keylayout/ACCDET.kl\
     $(LOCAL_PATH)/configs/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
-    
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ril_conf/apns-conf.xml:system/etc/apns-conf.xml \
     $(LOCAL_PATH)/configs/ril_conf/ecc_list.xml:system/etc/ecc_list.xml \
@@ -216,9 +220,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
    libccci_util   \
    libmtk_symbols
-
-# Sensor Calibration
-PRODUCT_PACKAGES += libem_sensor_jni
 
 # Radio dependencies
 PRODUCT_PACKAGES += \

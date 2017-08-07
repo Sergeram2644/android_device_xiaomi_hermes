@@ -37,4 +37,3 @@ allow MtkCodecService dumpstate:fd use;
 
 # Nougat
 allow MtkCodecService rootfs:lnk_file { getattr };
-

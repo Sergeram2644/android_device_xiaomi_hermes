@@ -18,10 +18,17 @@ type radvd_data_file, file_type, data_file_type;
 # Purpose : SF rtt dump
 type sf_rtt_file, file_type, data_file_type;
 
+type volte_stack_socket, file_type;
+type volte_imcb_socket, file_type;
+type volte_ua_socket, file_type;
 type dfo_socket, file_type;
 type rild2_socket, file_type;
 type rild3_socket, file_type;
 type rild4_socket, file_type;
+type rild_mal_socket, file_type;
+type rild_mal_at_socket, file_type;
+type rild_mal_md2_socket, file_type;
+type rild_mal_at_md2_socket, file_type;
 type rild_ims_socket, file_type;
 type rild_imsm_socket, file_type;
 type rild_oem_socket, file_type;
@@ -39,6 +46,7 @@ type rild_mtk_modem_md2_socket, file_type;
 type rild_atci_md2_socket, file_type;
 type rild_vsim_socket, file_type;
 type rild_vsim_md2_socket, file_type;
+type mal_mfi_socket, file_type;
 type netdiag_socket, file_type;
 type atci_service_socket, file_type;
 type atci_serv_fw_socket, file_type;
@@ -196,4 +204,3 @@ type autokd_data_file, file_type, data_file_type;
 type ipoh_data_file, file_type, data_file_type;
 
 type sysfs_devinfo, fs_type, sysfs_type;
-type fast_charge_sysfs, fs_type, sysfs_type;

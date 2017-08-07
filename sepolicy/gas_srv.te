@@ -41,6 +41,7 @@ allow gas_srv           mediaserver:dir                     search;
 allow gas_srv           mediaserver:file                    {open read getattr};
 
 # Binder interaction
+allow gas_srv           mtk_perf_service:service_manager    find;
 allow surfaceflinger    gas_srv_service:service_manager     find;
 allow untrusted_app     gas_srv_service:service_manager     find;
 allow platform_app      gas_srv_service:service_manager     find;

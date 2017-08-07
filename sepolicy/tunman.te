@@ -19,8 +19,6 @@ net_domain(tunman)
 # Allows connections to /dev/socket/tunman
 unix_socket_connect(netdomain, tunman, tunman)
 
-# Allows us to set 'tunman.protocol' property
-
 # Allows us to talk to netd
 unix_socket_connect(tunman, netd, netd)
 

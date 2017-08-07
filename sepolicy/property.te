@@ -156,5 +156,14 @@ type persist_wod_prop, property_type;
 #=============allow program binary deamon  ==============
 type program_binary_prop, property_type;
 
+#=============allow radio to set mtk_volte_enable property==============
+type mtk_volte_prop, property_type;
+
+#=============allow mtkmal to start volte==============
+type ctl_volte_imcb_prop, property_type;
+type ctl_volte_stack_prop, property_type;
+type ctl_volte_ua_prop, property_type;
+type volte_prop, property_type;
+
 #=============allow hotknot deamon  ==============
 type hotknot_prop, property_type;

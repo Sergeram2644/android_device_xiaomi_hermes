@@ -79,7 +79,6 @@
 /dev/btif(/.*)? u:object_r:btif_device:s0
 /dev/btn(/.*)? u:object_r:btn_device:s0
 /dev/BU6429AF(/.*)? u:object_r:BU6429AF_device:s0
-/dev/DW9761BAF(/.*)? u:object_r:DW9761BAF_device:s0
 /dev/BU64745GWZAF(/.*)? u:object_r:BU64745GWZAF_device:s0
 /dev/MAINAF(/.*)? u:object_r:MAINAF_device:s0
 /dev/MAIN2AF(/.*)? u:object_r:MAIN2AF_device:s0
@@ -96,6 +95,7 @@
 /dev/devmap(/.*)? u:object_r:devmap_device:s0
 /dev/dummy_cam_cal(/.*)? u:object_r:dummy_cam_cal_device:s0
 /dev/DW9714AF(/.*)? u:object_r:DW9714AF_device:s0
+/dev/DW9761BAF(/.*)? u:object_r:DW9761BAF_device:s0
 /dev/DW9814AF(/.*)? u:object_r:DW9814AF_device:s0
 /dev/AK7345AF(/.*)? u:object_r:AK7345AF_device:s0
 /dev/DW9714A(/.*)? u:object_r:DW9714A_device:s0
@@ -222,7 +222,12 @@
 /dev/socket/rild2(/.*)? u:object_r:rild2_socket:s0
 /dev/socket/rild3(/.*)? u:object_r:rild3_socket:s0
 /dev/socket/rild4(/.*)? u:object_r:rild4_socket:s0
+/dev/socket/rild-mal(/.*)? u:object_r:rild_mal_socket:s0
+/dev/socket/rild-mal-at(/.*)? u:object_r:rild_mal_at_socket:s0
+/dev/socket/rild-mal-md2(/.*)? u:object_r:rild_mal_md2_socket:s0
+/dev/socket/rild-mal-at-md2(/.*)? u:object_r:rild_mal_at_md2_socket:s0
 /dev/socket/rild-ims(/.*)? u:object_r:rild_ims_socket:s0
+/dev/socket/volte_imsm(/.*)? u:object_r:rild_imsm_socket:s0
 /dev/socket/rild-atci-md2(/.*)? u:object_r:rild_atci_md2_socket:s0
 /dev/socket/rild-atci(/.*)? u:object_r:rild_atci_socket:s0
 /dev/socket/rild-vsim(/.*)? u:object_r:rild_vsim_socket:s0
@@ -243,6 +248,7 @@
 /dev/socket/rild(/.*)? u:object_r:rild_socket:s0
 /dev/socket/rild-via u:object_r:rild_via_socket:s0
 /dev/socket/rild-atci-c2k(/.*)? u:object_r:rild_atci_c2k_socket:s0
+/dev/socket/mal-mfi(/.*)? u:object_r:mal_mfi_socket:s0
 /dev/socket/rpc u:object_r:rpc_socket:s0
 /dev/socket/soc_vt_stk(/.*)? u:object_r:soc_vt_stk_socket:s0
 /dev/socket/soc_vt_svc(/.*)? u:object_r:soc_vt_svc_socket:s0
@@ -250,6 +256,11 @@
 /dev/socket/statusd u:object_r:statusd_socket:s0
 /dev/socket/sysctl(/.*)? u:object_r:sysctl_socket:s0
 /dev/socket/vold(/.*)? u:object_r:vold_socket:s0
+/dev/socket/volte_stack(/.*)? u:object_r:volte_stack_socket:s0
+/dev/socket/volte_imcb(/.*)? u:object_r:volte_imcb_socket:s0
+/dev/socket/volte_ua(/.*)? u:object_r:volte_ua_socket:s0
+/dev/socket/volte_imsa1(/.*)? u:object_r:volte_imsa1_socket:s0
+/dev/socket/volte_imsvt1(/.*)? u:object_r:volte_imsvt1_socket:s0
 /dev/socket/wpa_wlan0(/.*)? u:object_r:wpa_wlan0_socket:s0
 /dev/socket/zygote(/.*)? u:object_r:zygote_socket:s0
 /dev/socket/wod_action(/.*)? u:object_r:wod_action_socket:s0
@@ -349,6 +360,7 @@
 /system/app/mcRegistry(/.*)? u:object_r:mobicore_data_file:s0
 /system/bin/6620_launcher u:object_r:mtk_6620_launcher_exec:s0
 /system/bin/stp_dump3 u:object_r:stp_dump3_exec:s0
+/system/bin/aal u:object_r:aal_exec:s0
 /system/bin/aee_core_forwarder u:object_r:aee_core_forwarder_exec:s0
 /system/bin/akmd09911 u:object_r:akmd09911_exec:s0
 /system/bin/akmd09912 u:object_r:akmd09912_exec:s0
@@ -439,7 +451,11 @@
 /system/bin/tiny_swapon u:object_r:tiny_swapon_exec:s0
 /system/bin/tune2fs u:object_r:tune2fs_exec:s0
 /system/bin/viarild u:object_r:viarild_exec:s0
+/system/bin/volte_imcb u:object_r:volte_imcb_exec:s0
+/system/bin/volte_stack u:object_r:volte_stack_exec:s0
+/system/bin/volte_ua u:object_r:volte_ua_exec:s0
 /system/bin/wfca u:object_r:wfca_exec:s0
+/system/bin/mtkmal u:object_r:mtkmal_exec:s0
 /system/bin/wifi2agps u:object_r:wifi2agps_exec:s0
 /system/bin/wmt_loader u:object_r:wmt_loader_exec:s0
 /system/bin/xlog u:object_r:xlog_exec:s0
@@ -496,9 +512,6 @@
 /dev/block/platform/mtk-msdc\.0/[0-9]+\.MSDC0/by-name/boot	        u:object_r:boot_block_device:s0
 /dev/block/platform/mtk-msdc\.0/[0-9]+\.MSDC0/by-name/persist           u:object_r:persist_block_device:s0
 /dev/block/platform/mtk-msdc\.0/[0-9]+\.MSDC0/by-name/system            u:object_r:system_block_device:s0
+
 /data/data(/.*)?       u:object_r:system_data_file:s0
 /dev/socket/sdcard u:object_r:vold_socket:s0
-
-/sys/kernel/charge_levels/quick_charge_enable                   u:object_r:fast_charge_sysfs:s0
-/sys/kernel/charge_levels/charge_level_ac                       u:object_r:fast_charge_sysfs:s0
-/sys/kernel/charge_levels/charge_level_usb                      u:object_r:fast_charge_sysfs:s0

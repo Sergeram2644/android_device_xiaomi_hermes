@@ -11,7 +11,6 @@ typeattribute system_app mlstrustedsubject;
 # Purpose :[CdsInfo][CdsInfo uses net shell commands to get network information and write WI-FI MAC address by NVRAM]
 # Package Name: com.mediatek.connectivity
 allow system_app nvram_agent_binder:binder call;
-allow system_app nvram_backup_binder:binder call;
 
 # Date: 2014/08/01
 # Operation: BaseUT

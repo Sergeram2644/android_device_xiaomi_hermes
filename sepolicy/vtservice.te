@@ -30,6 +30,7 @@ binder_service(vtservice)
 # Purpose : Add vtservice to support video telephony functionality 
 #           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
 allow vtservice vtservice_service:service_manager add;
+unix_socket_connect(vtservice, volte_imsvt1, volte_imcb)
 unix_socket_connect(vtservice, rild_oem, mtkrild)
 allow vtservice mtkrild:unix_stream_socket connectto;
 allow vtservice fuse:dir search;
