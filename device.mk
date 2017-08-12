@@ -3,7 +3,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-$(call inherit-product, device/common/gps/gps_us_supl.mk) 
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product, vendor/xiaomi/hermes/hermes-vendor-blobs.mk)
 
 # Overlay Folder
@@ -20,9 +20,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_OTA_ASSERT_DEVICE := hermes
 
 # Power
-PRODUCT_PACKAGES += \
-    power.default \
-    power.mt6795
+PRODUCT_PACKAGES += power.mt6795
 
 # Camera
 PRODUCT_PACKAGES += Snap
@@ -66,7 +64,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril.config=fakeiccid \
     persist.call_recording.enabled=true \
     persist.call_recording.src=1 \
-    ro.sys.fw.bg_apps_limits=8
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -137,6 +134,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
@@ -157,7 +156,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/permissions/media_codecs.xml \
     $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/mtk_clear_motion.cfg:system/etc/mtk_clear_motion.cfg
 
@@ -218,8 +216,8 @@ PRODUCT_COPY_FILES += \
 
 # MTK Helpers 
 PRODUCT_PACKAGES += \
-   libccci_util   \
-   libmtk_symbols
+    libccci_util \
+    libmtk_symbols
 
 # Radio dependencies
 PRODUCT_PACKAGES += \
@@ -233,7 +231,7 @@ PRODUCT_PACKAGES += libion
 PRODUCT_PACKAGES += \
     gps.mt6795 \
     libcurl \
-    YGPS
+    MtkGPS
 
 # Mediaserver with system group
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init/mediaserver.rc:system/etc/init/mediaserver.rc 

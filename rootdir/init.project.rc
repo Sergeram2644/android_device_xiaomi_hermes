@@ -1,7 +1,6 @@
 # MTK project .rc configure
 
 import init.mt6795.usb.rc
-import init.modem.rc
 
 on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw

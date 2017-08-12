@@ -164,3 +164,8 @@ allow system_app drmserver:drmservice openDecryptSession;
 allow system_app thermal_manager_data_file:file { open getattr read write create};
 allow system_app thermal_manager_data_file:file { open setattr lock };
 allow system_app thermal_manager_data_file:dir { search getattr open read write setattr add_name };
+
+# Date: 2015/09/10
+# Stage: Migration
+# Purpose: [HotKnot] Allow HotKnot service to start/stop hotknot_native_service
+allow system_app hotknot_prop:property_service set;
